@@ -24,5 +24,22 @@ namespace View
         {
             InitializeComponent();
         }
+
+        private void ConvertToCelsius(object sender, RoutedEventArgs e)
+        {
+            String inputString = textBox.Text;
+            if (inputString.Length == 0) return;
+            try
+            {
+                int F = int.Parse(inputString);
+                int C = (F - 32) * 5 / 9;
+                String output = C.ToString();
+                textBox.Text = output + "C°";
+            }
+            catch (FormatException error)
+            {
+                textBox.Text = "Input could not be parsed";
+            }
+        }
     }
 }
